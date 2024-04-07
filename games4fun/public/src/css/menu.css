@@ -1,0 +1,80 @@
+:root {
+    --color-texto: #717171;
+
+    /* sin asignar utilidad */
+    --dim-gray: #676767;
+
+    --fondo-texto: #404040;
+    --fondo: #191919;
+}
+
+body {
+    background-color: var(--fondo);
+    text-align: center;
+}
+
+body * {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#titulo {
+    text-shadow: 5px -5px var(--fondo-texto);
+    color: var(--color-texto);
+    animation: titulo 1s infinite;
+    margin-bottom: 0px;
+    font-size: 100px;
+}
+
+@keyframes titulo {
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+#subtitulo {
+    color: var(--color-texto);
+}
+
+#err {
+    width: fit-content;
+    padding: 5px;
+    margin: auto;
+    color: red;
+}
+
+@keyframes error {
+    50% {
+        background-color: yellow;
+    }
+}
+
+#labelUsuario {
+    color: var(--color-texto);
+}
+
+#inputUsuario {
+    background-color: var(--color-texto);
+    border-color: var(--color-texto);
+    color: var(--fondo-texto);
+    font-weight: bolder;
+}
+
+#sala {
+    background-color: var(--color-texto);
+    border-color: var(--color-texto);
+    color: var(--fondo-texto);
+}
+
+.boton {
+    background-color: var(--color-texto);
+    border-color: var(--color-texto);
+    color: var(--fondo-texto);
+    transition: linear .2s;
+    font-weight: bolder;
+    padding: 5px;
+    margin: 5px;
+}
+
+.boton:hover {
+    transform: translateY(-5px);
+}

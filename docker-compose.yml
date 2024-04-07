@@ -1,0 +1,44 @@
+version: '3.9'
+services:
+  Games4fun:
+    image: markosmartinez/laravelpassport-php8.2
+    container_name: Games4fun
+    ports:
+      - '8080:8000'
+    environment:
+      - DB_CONNECTION=mysql
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USERNAME=administrador
+      - DB_PASSWORD=games4fun
+      - DB_DATABASE=Games4Fun
+    volumes:
+      - './games4fun/:/var/www/html/'
+    
+  mysql:
+    image: mysql:latest
+    container_name: MYSQL
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'Games4Fun'
+      MYSQL_USER: 'administrador'
+      MYSQL_PASSWORD: 'games4fun'
+      MYSQL_ROOT_PASSWORD: 'games4fun'
+    ports:
+      - '3306:3306'
+    expose:
+      - '8086'
+    volumes:
+      - ./my-db:/var/lib/mysql
+      - ./crear-tablas.sql:/docker-entrypoint-initdb.d/crear-tablas.sql
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: PHPMYADMIN
+    restart: always
+    ports:
+      - 8090:80
+    environment:
+      - PMA_ARBITRARY=1
+volumes:
+  my-db:
