@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('salas_damas', function (Blueprint $table) {
-            $table->integer('id_sala')->primary();
-            $table->string('jugador_1');
-            $table->string('jugador_2');
-            $table->string('movimiento');
+        Schema::create('password_reset_tokens', function (Blueprint $table) {
+            $table->string('email')->primary();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
         });
     }
 
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('salas_damas');
+        Schema::dropIfExists('password_reset_tokens');
     }
 };

@@ -5,40 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Games4Fun</title>
-    <link rel="stylesheet" href="./src/css/menu.css">
+    <link rel="stylesheet" href="/src/css/styles.css">
 </head>
 
 <body>
     <script>
         let host = (new URL(window.location.origin)).host;
 
-        function crearSala(sala, usuario) {
-            if (!usuario || usuario == null) {
-                err.innerHTML = 'Debe introducir un usuario'
-                return null
+        function saveData() {
+            if (!inputUsuario.value) {
+                err.innerHTML = 'Rellene el usuario, por favor'
+            } else if (!sala.value) {
+                err.innerHTML = 'Rellene la sala, por favor'
             } else {
-                err.innerHTML = ''
+                err.innerHTML = '<div id="carga"></div>'
+                carga.style.animation = 'carga 1s infinite'
+                
+                // Se prepara la información para pasarla a otra página
+                localStorage.setItem('sala', sala.value)
+                localStorage.setItem('usr', inputUsuario.value)
+                window.location = `/${sala.value}`
             }
-
-            if (!sala || sala == null) {
-                err.innerHTML = 'Debe elegir una sala'
-                return null
-            } else {
-                err.innerHTML = ''
-            }
-
-            console.log(sala + ', ' + usuario)
-            fetch(`/crearJuego?sala=${sala}&usr=${usuario}`)
-                .then((response) => {
-                    if(!response.ok){
-                        err.innerHTML = 'Ha ocurrido un error al crear la sala'
-                        return 'error'
-                    }
-                    return response.json()
-                })
-                .then((data) => {
-                    console.log(data)
-                })
         }
     </script>
 
@@ -47,29 +34,31 @@
 
     <br><br>
 
-    <p id='err'></p>
+    <div id='err'></div>
 
     <label id='labelUsuario' for="inputUsuario">Nombre de usuario</label>
+    
     <br>
-    <input id='inputUsuario' type="text">
+    
+    <input id='inputUsuario' type="text" name='usr' class='texto'>
 
     <br><br><br>
 
     <select name="sala" id="sala">
         <option value="">Escoja una sala</option>
-        <option value="1">Hundir la flota</option>
-        <option value="2">Tres en raya</option>
-        <option value="3">Damas</option>
-        <option value="4">¿Quien es quien?</option>
+        <option value="damas">Damas</option>
+        <option value="hf">Hundir la flota</option>
+        <option value="tr">Tres en raya</option>
+        <option value="qnq">¿Quien es quien?</option>
     </select>
 
     <br><br>
 
-    <button class='boton' onclick='crearSala(sala.value, inputUsuario.value)'>Crear una sala</button>
+    <button class='boton' onclick='saveData()'>Crear sala</button>
 
     <br>
 
-    <button class='boton'>Unirse a una sala</button>
+    <button class='boton' disabled>Unirse a una sala</button>
 
 </body>
 

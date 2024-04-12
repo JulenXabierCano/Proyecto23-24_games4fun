@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('salas_hundir_flota', function (Blueprint $table) {
-            $table->integer('id_sala')->primary();
-            $table->string('jugador_1');
-            $table->string('jugador_2');
-            $table->string('objetivo');
+        Schema::create('oauth_personal_access_clients', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('client_id');
+            $table->timestamps();
         });
     }
 
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('salas_hundir_flota');
+        Schema::dropIfExists('oauth_personal_access_clients');
     }
 };
