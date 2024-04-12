@@ -5,6 +5,8 @@ services:
     container_name: Games4fun
     ports:
       - '8080:8000'
+    depends_on:
+      - mysql
     environment:
       - DB_CONNECTION=mysql
       - DB_HOST=mysql

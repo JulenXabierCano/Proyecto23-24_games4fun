@@ -74,6 +74,28 @@ CREATE TABLE `salas_tres_en_raya` (
   `eleccion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+CREATE TABLE `oauth_clients` (
+    `user_id` int NOT NULL,
+    `name` VARCHAR(255),
+    `secret` VARCHAR(255),
+    `provider` VARCHAR(255),
+    `redirect` VARCHAR(255),
+    `personal_access_client` TINYINT(1),
+    `password_client` TINYINT(1),
+    `revoked` TINYINT(1),
+    `updated_at` TIMESTAMP,
+    `created_at` TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `oauth_personal_access_clients` (
+    `client_id` int NOT NULL,
+    `updated_at` TIMESTAMP,
+    `created_at` TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
 --
 -- Índices para tablas volcadas
 --
@@ -102,6 +124,12 @@ ALTER TABLE `salas_quien_es_quien`
 ALTER TABLE `salas_tres_en_raya`
   ADD PRIMARY KEY (`id_sala`);
 
+ALTER TABLE `oauth_clients`
+  ADD PRIMARY KEY (`user_id`);
+
+ALTER TABLE `oauth_personal_access_clients`
+  ADD PRIMARY KEY (`client_id`);
+
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
@@ -129,6 +157,13 @@ ALTER TABLE `salas_quien_es_quien`
 --
 ALTER TABLE `salas_tres_en_raya`
   MODIFY `id_sala` int NOT NULL AUTO_INCREMENT;
+  
+  --
+-- AUTO_INCREMENT de la tabla `oauth_clients`
+--
+ALTER TABLE `oauth_clients`
+  MODIFY `user_id` int NOT NULL AUTO_INCREMENT;
+  
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
