@@ -54,8 +54,16 @@ body * {
 }
 
 @keyframes carga {
+    25%{
+        width: 30px;
+    }
+
     50% {
         transform: translateX(285px);
+    }
+
+    75% {
+        width: 30px;
     }
 }
 

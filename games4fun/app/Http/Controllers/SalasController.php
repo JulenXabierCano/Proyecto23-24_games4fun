@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\SalaHundirFlota;
 use App\Models\SalaDamas;
+use App\Models\SalaQuienQuien;
+use App\Models\SalaTresRaya;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 
@@ -24,7 +26,6 @@ class SalasController extends Controller
                 ]);
 
                 return json_encode($sala);
-                break;
 
             case $HUNDIR_FLOTA:
                 $sala = SalaHundirFlota::create([
@@ -32,7 +33,6 @@ class SalasController extends Controller
                 ]);
 
                 return view('hundir-flota', compact($sala));
-                break;
             
             case $TRES_RAYA:
                 # code...
@@ -61,7 +61,6 @@ class SalasController extends Controller
             case $DAMAS:
                 $sala = SalaDamas::where('id_sala', $idSala)->get();
                 return json_encode($sala);
-                break;
 
             case $HUNDIR_FLOTA:
                 $sala = SalaHundirFlota::create([
@@ -69,7 +68,6 @@ class SalasController extends Controller
                 ]);
 
                 return view('hundir-flota', compact($sala));
-                break;
             
             case $TRES_RAYA:
                 # code...
@@ -82,6 +80,25 @@ class SalasController extends Controller
             default:
                 # code...
                 break;
+        }
+    }
+
+    public static function limpiar_salas() {
+        $salas = SalaDamas::all();
+        foreach ($salas as $sala) {
+           $sala->delete();
+        }
+        $salas = SalaHundirFlota::all();
+        foreach ($salas as $sala) {
+           $sala->delete();
+        }
+        $salas = SalaTresRaya::all();
+        foreach ($salas as $sala) {
+           $sala->delete();
+        }
+        $salas = SalaQuienQuien::all();
+        foreach ($salas as $sala) {
+           $sala->delete();
         }
     }
 }
