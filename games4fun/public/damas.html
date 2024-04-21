@@ -126,12 +126,11 @@
                                 $(`#${origen - 9}`).text() != null ||
                                 $(`#${origen - 11}`).text() != null
                             ) && (
-                                $(`#${parseInt(origen) + (destino - parseInt(origen)) / 2}`).attr('src') == FICHA_NEGRA
+                                $(`#f${parseInt(origen) + (destino - parseInt(origen)) / 2}`).attr('src') == FICHA_NEGRA
                             )
                         ) &&
                         $(`#${destino}`).text() == ''
                     ) {
-                        console.log(parseInt(origen) + (destino - parseInt(origen)) / 2)
                         if (document.getElementById(`${parseInt(origen) + (destino - parseInt(origen)) / 2}`)) {
                             document.getElementById(`${parseInt(origen) + (destino - parseInt(origen)) / 2}`).innerHTML = ''
                         }
@@ -155,7 +154,7 @@
                                 $(`#${origen + 9}`).text() != null ||
                                 $(`#${origen + 11}`).text() != null
                             ) && (
-                                $(`#${parseInt(origen) + (destino - parseInt(origen)) / 2}`).attr('src') == FICHA_BLANCA
+                                $(`#f${parseInt(origen) + (destino - parseInt(origen)) / 2}`).attr('src') == FICHA_BLANCA
                             )
                         ) &&
                         $(`#${destino}`).text() == ''
