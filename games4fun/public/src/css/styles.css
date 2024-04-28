@@ -60,6 +60,7 @@ body * {
 
     50% {
         transform: translateX(285px);
+        width: 15px;
     }
 
     75% {

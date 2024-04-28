@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('movimiento_j2');
             $table->string('mensaje_j1');
             $table->string('mensaje_j2');
-            $table->boolval('publica');
+            $table->boolean('publica');
 
         });
     }
