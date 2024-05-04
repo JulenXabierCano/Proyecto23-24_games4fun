@@ -37,10 +37,10 @@ services:
     ports:
       - '3306:3306'
     expose:
-      - '8086'
+      - '3306'
     volumes:
       - ./my-db:/var/lib/mysql
-#     - ./crear-tablas.sql:/docker-entrypoint-initdb.d/crear-tablas.sql
+      - ./create_laravel_user.sql:/docker-entrypoint-initdb.d/crear-tablas.sql
 
   phpmyadmin:
     image: phpmyadmin

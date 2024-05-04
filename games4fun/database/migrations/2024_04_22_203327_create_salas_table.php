@@ -12,15 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('salas', function (Blueprint $table) {
-            $table->string('id_sala')->primary();
+            $table->id();
             $table->string('jugador_1');
-            $table->string('jugador_2');
-            $table->string('movimiento_j1');
-            $table->string('movimiento_j2');
-            $table->string('mensaje_j1');
-            $table->string('mensaje_j2');
-            $table->boolean('publica');
-
+            $table->string('jugador_2')->nullable();
+            $table->string('movimiento_j1')->nullable();
+            $table->string('movimiento_j2')->nullable();
+            $table->string('mensaje_j1')->nullable();
+            $table->string('mensaje_j2')->nullable();
+            $table->string('privada')->nullable();
         });
     }
 

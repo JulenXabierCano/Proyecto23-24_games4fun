@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SalaTresRaya extends Model
+class Sala extends Model
 {
     use HasFactory;
 
     public $timestamps = false;
-
-    protected $table = 'salas_tres_en_raya';
-    protected $primaryKey = 'id_sala';
-
+    
     protected $fillable = [
-        'id_sala',
         'jugador_1',
         'jugador_2',
-        'eleccion',
+        'movimiento_j1',
+        'movimiento_j2',
+        'mensaje_j1',
+        'mensaje_j2',
+        'privada',
     ];
 }
