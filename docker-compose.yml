@@ -10,8 +10,9 @@ services:
     #restart: always
     command: > 
         bash -c "
-            php artisan migrate:refresh &&
+            composer install &&
             cp .env.example .env &&
+            php artisan migrate:refresh &&
             php artisan key:generate &&
             php artisan serve --host=0.0.0.0 --port=8000
         "
@@ -40,8 +41,7 @@ services:
       - '3306'
     volumes:
       - ./my-db:/var/lib/mysql
-      - ./create_laravel_user.sql:/docker-entrypoint-initdb.d/crear-tablas.sql
-
+      
   phpmyadmin:
     image: phpmyadmin
     container_name: PHPMYADMIN
