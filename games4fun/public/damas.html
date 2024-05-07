@@ -99,7 +99,7 @@
 
         document.body.appendChild(table)
 
-        // Inserta código para que las fichas sean dragables con jquery
+        // Código para que las fichas sean dragables con jquery
         function añadir_atributos() {
             $('.ficha').attr('draggable', true);
 
@@ -130,25 +130,28 @@
                             diagonal(-9, destino)
                         ) && $(`#f${origen}`).attr("src") == FICHA_BLANCA
                     )
-                ) || (
-                    (
-                        ( // Norma 2
-                            (
-                                diagonal(22, destino) ||
-                                diagonal(18, destino)
-                            ) && $(`#f${origen}`).attr("src") == FICHA_NEGRA &&
-                            $(`#f${formula(origen, destino)}`).attr("src") == FICHA_BLANCA
-                        ) || (
-                            (
-                                diagonal(-22, destino) ||
-                                diagonal(-18, destino)
-                            ) && $(`#f${origen}`).attr("src") == FICHA_BLANCA &&
-                            $(`#f${formula(origen, destino)}`).attr("src") == FICHA_NEGRA
-                        )
-                    )
                 )
             )
                 return true
+
+            else if (
+                ( // Norma 2
+                    (
+                        diagonal(22, destino) ||
+                        diagonal(18, destino)
+                    ) && $(`#f${origen}`).attr("src") == FICHA_NEGRA &&
+                    $(`#f${formula(origen, destino)}`).attr("src") == FICHA_BLANCA
+                ) || (
+                    (
+                        diagonal(-22, destino) ||
+                        diagonal(-18, destino)
+                    ) && $(`#f${origen}`).attr("src") == FICHA_BLANCA &&
+                    $(`#f${formula(origen, destino)}`).attr("src") == FICHA_NEGRA
+                )
+            ) {
+                $(`#${formula(origen, destino)}`).text('')
+                return true
+            }
 
             return false
         }

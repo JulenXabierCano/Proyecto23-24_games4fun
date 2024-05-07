@@ -17,13 +17,13 @@ class SalasController extends Controller
     }
 
     public function datosSala(Request $request) {
-        return Sala::where("id", $request->id);
+        return Sala::where("id", $request->id_sala);
     }
 
     public static function limpiar_salas() {
         $salas = Sala::all();
-        foreach ($sala as $salas) {
-            $sala::delete();
+        foreach ($salas as $sala) {
+            $sala->delete();
         };
     }
 }

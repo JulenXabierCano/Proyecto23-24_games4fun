@@ -4,7 +4,7 @@
  */
 function compj2(j2) {
     if (j2) {
-        generarTablero()
+        crearTablero()
         return j2
     } else
         return 'No ha entrado'
@@ -18,7 +18,7 @@ function mostrarDatos(datos) {
     info.innerHTML = `
                 <p><b>Información de la sala:</b></p>\
                 <hr>
-                <p><b>ID de la sala:</b> ${datos.id_sala}</p>
+                <p><b>ID de la sala:</b> ${datos.id}</p>
                 <hr>
                 <p><b>Jugador 1:</b> ${datos.jugador_1}</p>
                 <hr>
@@ -31,7 +31,7 @@ function mostrarDatos(datos) {
  * la información de la sala cada segundo
  */
 function cojerDatos() {
-    fetch(`/datosSala?sala=${localStorage.getItem('sala')}&idSala=${localStorage.getItem('id_sala')}`)
+    fetch(`/datosSala?idSala=${localStorage.getItem('id_sala')}`)
         .then((response) => {
             if (!response.ok)
                 return 'Error en la consulta'
