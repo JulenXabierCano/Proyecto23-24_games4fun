@@ -4,7 +4,6 @@
  */
 function compj2(j2) {
     if (j2) {
-        crearTablero()
         return j2
     } else
         return 'No ha entrado'
@@ -31,7 +30,7 @@ function mostrarDatos(datos) {
  * la información de la sala cada segundo
  */
 function cojerDatos() {
-    fetch(`/datosSala?idSala=${localStorage.getItem('id_sala')}`)
+    fetch(`/datosSala?id=${localStorage.getItem('id_sala')}`)
         .then((response) => {
             if (!response.ok)
                 return 'Error en la consulta'
@@ -42,6 +41,10 @@ function cojerDatos() {
             if (!datos)
                 window.location = '/'
 
-            mostrarDatos(datos[0])
+            mostrarDatos(datos)
         })
+}
+
+function volver() {
+    window.location = '/'
 }

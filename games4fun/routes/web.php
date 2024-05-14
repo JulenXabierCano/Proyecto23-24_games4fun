@@ -23,22 +23,18 @@ Route::get('/404', function () {
     return view('404');
 });
 
+Route::get('/crearSala', [SalasController::class, 'crearSala']);
+
 Route::get('/datosSala', [SalasController::class, 'datosSala']);
 
-Route::get('/sala', [SalasController::class, 'crearSala']);
+Route::get('/salasPublicas', [SalasController::class, 'salasPublicas']);
 
-Route::get('/damas', function () {
-    return view('damas');
+Route::get('/entrar', [SalasController::class, 'entrar']);
+
+Route::get('/unirse', function () {
+    return view('unirse');
 });
 
-Route::get('/hf', function () {
-    return view('404');
-});
-
-Route::get('/tr', function () {
-    return view('404');
-});
-
-Route::get('/qnq', function () {
-    return view('404');
+Route::get('/sala', function () {
+    return view('sala');
 });

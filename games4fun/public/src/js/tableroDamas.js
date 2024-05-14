@@ -93,7 +93,7 @@ function crearTablero() {
         table.appendChild(fila)
     }
 
-    document.body.appendChild(table)
+    tablero.innerHTML = ''
+    tablero.appendChild(table)
+    añadir_atributos()
 }
-
-añadir_atributos()

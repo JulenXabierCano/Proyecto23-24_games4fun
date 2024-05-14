@@ -54,7 +54,7 @@ body * {
 }
 
 @keyframes carga {
-    25%{
+    25% {
         width: 30px;
     }
 
@@ -135,11 +135,6 @@ body * {
     margin: 0px;
 }
 
-#cerrarSala {
-    position: absolute;
-    right: 25px;
-}
-
 #chat {
     background-color: var(--color-texto);
     display: inline-block;
@@ -171,4 +166,37 @@ body * {
     text-align: center;
     margin: 15px;
     width: 300px;
+}
+
+label {
+    color: var(--color-texto);
+}
+
+table,
+tr,
+td {
+    color: var(--color-texto);
+    border-color: var(--color-texto);
+    border-collapse: collapse;
+}
+
+#tablaPartidas {
+    margin: auto;
+}
+
+#tablero table {
+    margin: auto;
+    margin-top: 25px;
+}
+
+#tablero table tr td {
+    border: 1px var(--fondo) solid;
+    width: 75px;
+    height: 75px;
+}
+
+.ficha {
+    width: auto;
+    width: 75px;
+    height: 75px;
 }
