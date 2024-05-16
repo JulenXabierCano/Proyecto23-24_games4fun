@@ -11,6 +11,7 @@ const table = document.createElement('table')
  */
 
 function formula(origen, destino) { return parseInt(origen) + (destino - parseInt(origen)) / 2 }
+function diagonal(num, destino) { return destino == parseInt(origen) + num }
 
 function añadir_atributos() {
     $('.ficha').attr('draggable', true);
@@ -43,7 +44,7 @@ function normasDamas(destino) {
     return false
 }
 
-function crearTablero() {
+function tableroDamas() {
     for (x = 1; x <= 8; x++) {
         const fila = document.createElement('tr')
         for (y = 1; y <= 8; y++) {
